@@ -22,31 +22,45 @@ const experiences = [
 const projects = [
   {
     number: "01",
-    category: "Sécurité · Détection",
-    title: "Laboratoire de cybersécurité",
-    text: "Un environnement de test personnel pour expérimenter le durcissement des systèmes, la détection et la gestion des vulnérabilités : SIEM, IDS/IPS, honeypots et scans automatisés de conteneurs avec alertes.",
-    tags: ["Wazuh", "Suricata", "Docker", "Python"],
+    category: "SYSTÈMES · DURCISSEMENT",
+    title: "Durcir, puis vérifier.",
+    text: "Mise en pratique du durcissement de systèmes Linux et Windows dans un laboratoire virtualisé et cloisonné. J’évalue leur exposition avec OpenVAS et Nessus ; mes environnements Linux couvrent notamment Ubuntu, Debian, Red Hat et SUSE.",
+    tags: ["Linux", "Windows", "OpenVAS", "Nessus"],
   },
   {
     number: "02",
-    category: "Infrastructure · Cloud privé",
-    title: "Une infrastructure à la maison",
-    text: "Virtualisation et services auto-hébergés : cloud Nextcloud, sauvegardes automatisées, réseau segmenté et accès distant sécurisé. Expérimentations autour de Windows Server, Active Directory et de la synchronisation avec Entra ID.",
-    tags: ["Proxmox", "Nextcloud", "restic", "Tailscale"],
+    category: "RÉSEAU · IDENTITÉ",
+    title: "Cloisonner et contrôler les accès.",
+    text: "Configuration de VLAN et expérimentation de pare-feu logiciels (OPNsense, pfSense) et d’un équipement physique. Comparaison de WireGuard, OpenVPN et IPsec, puis choix de Tailscale pour l’accès distant. J’ai aussi monté un domaine Active Directory sous Windows Server 2022 et testé sa synchronisation avec Entra ID.",
+    tags: ["VLAN", "OPNsense", "Windows Server", "Entra ID"],
   },
   {
     number: "03",
-    category: "Développement web",
-    title: "Menu digital par QR code",
-    text: "Conception d’une application web de menu digital, avec une interface de gestion permettant à l’équipe cuisine de suivre les commandes en temps réel.",
-    tags: ["JavaScript", "PHP", "MySQL"],
+    category: "DÉTECTION · VULNÉRABILITÉS",
+    title: "Rendre les signaux visibles.",
+    text: "Tests de SIEM (Wazuh, Graylog), d’IDS/IPS (Suricata, Snort), de NDR et de honeypots. Pour mes conteneurs, Aqua Security lance une analyse quotidienne ; une alerte Telegram indique la criticité et le conteneur concerné.",
+    tags: ["Wazuh", "Suricata", "Aqua Security", "Telegram"],
+  },
+  {
+    number: "04",
+    category: "VIRTUALISATION · SERVICES",
+    title: "Construire une infrastructure résiliente.",
+    text: "Comparaison de VMware ESXi avec vSphere/vCenter, Proxmox VE et Hyper-V. J’héberge Nextcloud avec Docker Compose et authentification renforcée, protège les accès web avec ModSecurity sur Nginx et automatise les sauvegardes avec restic. J’ai aussi expérimenté Kubernetes et Rancher.",
+    tags: ["ESXi", "Proxmox", "Docker Compose", "restic"],
   },
 ];
 
+const webProject = {
+  category: "DÉVELOPPEMENT WEB · PROJET PERSONNEL",
+  title: "Un menu digital, de la commande à la cuisine.",
+  text: "Application de menu accessible par QR code, développée en HTML, CSS, JavaScript, PHP et MySQL. Une interface dédiée permet à l’équipe en cuisine de suivre les commandes et leurs mises à jour en temps réel.",
+  tags: ["HTML / CSS", "JavaScript", "PHP", "MySQL"],
+};
+
 const expertise = [
   { title: "Logiciel embarqué", text: "C++, Qt, Linux embarqué, Yocto, U-Boot, communication réseau TCP/UDP, MQTT et ZeroMQ." },
-  { title: "Cybersécurité", text: "Gestion CVE, scans de vulnérabilités, SIEM, IDS/IPS, WAF, contrôle d’accès et sécurité applicative." },
-  { title: "Infrastructure", text: "Linux et Windows Server, Docker, Kubernetes, virtualisation, segmentation réseau, Terraform et Ansible." },
+  { title: "Cybersécurité", text: "Durcissement Linux/Windows, gestion CVE, OpenVAS/Nessus, SIEM, IDS/IPS, WAF et contrôle d’accès." },
+  { title: "Infrastructure", text: "Windows Server 2022, Active Directory, Entra ID, Linux (Ubuntu, Debian, Red Hat, SUSE), virtualisation et conteneurs." },
   { title: "Développement", text: "C#/.NET, React, Python, Bash, JavaScript, PHP/MySQL et outils de reporting." },
 ];
 
@@ -74,7 +88,28 @@ export default function Home() {
       <div className="experience-list">{experiences.map((item) => <article className="experience" key={item.company}><p className="period">{item.period}</p><div><h3>{item.role}</h3><p className="company">{item.company}</p></div><p className="experience-text">{item.text}</p><span className="arrow" aria-hidden="true">↗</span></article>)}</div>
     </section>
 
-    <section className="projects-band" id="projets"><div className="shell section"><div className="section-heading"><div><p className="eyebrow">02 / PROJETS PERSONNELS</p><h2>Apprendre en<br />construisant.</h2></div><p className="section-aside">Mes projets prolongent mon travail : expérimenter les technologies, relier les systèmes entre eux et documenter ce qui fonctionne.</p></div><div className="project-grid">{projects.map((project) => <article className="project-card" key={project.number}><div className="project-top"><span>{project.number}</span><span>{project.category}</span></div><h3>{project.title}</h3><p>{project.text}</p><div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></article>)}</div></div></section>
+    <section className="projects-band" id="projets">
+      <div className="shell section">
+        <div className="section-heading">
+          <div><p className="eyebrow">02 / PROJETS PERSONNELS</p><h2>Apprendre en<br />construisant.</h2></div>
+          <p className="section-aside">Un laboratoire personnel pour tester les systèmes, le réseau et la sécurité dans des environnements virtualisés, puis transformer ces essais en services concrets.</p>
+        </div>
+        <div className="lab-intro">
+          <div className="lab-intro-mark"><span>LAB</span><strong>01—04</strong></div>
+          <div><p className="eyebrow">LABORATOIRE INFRASTRUCTURE & CYBERSÉCURITÉ</p><h3>Voir l’infrastructure de bout en bout.</h3><p>Du système d’exploitation aux alertes, je monte des environnements de test pour comprendre comment les briques s’articulent : virtualisation, identité, réseau, détection et sauvegarde.</p></div>
+        </div>
+        <div className="project-grid">{projects.map((project) => <article className="project-card" key={project.number}>
+          <div className="project-top"><span>{project.number}</span><span>{project.category}</span></div>
+          <h3>{project.title}</h3><p>{project.text}</p>
+          <div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+        </article>)}</div>
+        <article className="web-project">
+          <div className="web-project-number">05</div>
+          <div className="web-project-copy"><p className="eyebrow">{webProject.category}</p><h3>{webProject.title}</h3><p>{webProject.text}</p></div>
+          <div className="tags">{webProject.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+        </article>
+      </div>
+    </section>
 
     <section className="section shell skills-section" id="competences">
       <div className="section-heading"><div><p className="eyebrow">03 / SAVOIR-FAIRE</p><h2>Mes domaines<br />de travail.</h2></div><p className="section-aside">Une base en développement logiciel et réseaux, complétée par une pratique de la cybersécurité et de l’infrastructure.</p></div>

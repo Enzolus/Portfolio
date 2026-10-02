@@ -1,0 +1,29 @@
+.lab-intro{display:grid;grid-template-columns:190px 1fr;gap:34px;align-items:center;background:var(--ink);color:var(--paper);padding:34px 38px;margin-bottom:18px;position:relative;overflow:hidden}
+.lab-intro:after{content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(219,239,114,.2);border-radius:50%;right:-80px;top:-110px;box-shadow:0 0 0 32px rgba(219,239,114,.035),0 0 0 64px rgba(219,239,114,.025)}
+.lab-intro-mark{display:flex;flex-direction:column;justify-content:center;align-items:center;width:132px;height:132px;border:1px solid rgba(245,244,238,.25);border-radius:50%;position:relative;z-index:1}
+.lab-intro-mark span{font-family:'Manrope',sans-serif;font-size:13px;font-weight:800;letter-spacing:2px;color:var(--accent)}
+.lab-intro-mark strong{font-size:11px;font-weight:500;letter-spacing:1px;color:#c4c7b7;margin-top:8px}
+.lab-intro .eyebrow{color:#b7bcaa;margin:0 0 12px}
+.lab-intro h3{font-family:'Manrope',sans-serif;font-size:clamp(25px,3vw,36px);font-weight:500;letter-spacing:-1.4px;line-height:1.15;margin:0 0 12px;max-width:680px}
+.lab-intro>div:last-child>p:last-child{font-size:13px;line-height:1.75;color:#c8cbbd;margin:0;max-width:680px}
+.project-card{min-height:310px}
+.project-card h3{line-height:1.15;margin-top:30px}
+.project-card>p{max-width:440px}
+.tags{flex-wrap:wrap}
+.web-project{display:grid;grid-template-columns:74px 1fr auto;gap:20px;align-items:center;background:var(--paper);padding:27px 30px;margin-top:18px;border:1px solid rgba(32,41,31,.06)}
+.web-project-number{font-family:'Manrope',sans-serif;font-size:24px;color:#899744}
+.web-project-copy .eyebrow{margin:0 0 8px;font-size:9px}
+.web-project-copy h3{font-family:'Manrope',sans-serif;font-size:23px;font-weight:500;letter-spacing:-.7px;margin:0 0 7px}
+.web-project-copy>p:last-child{font-size:12px;line-height:1.7;color:var(--muted);max-width:640px;margin:0}
+.web-project .tags{margin:0;padding:0;max-width:280px}
+@media(max-width:700px){
+  .lab-intro{grid-template-columns:1fr;gap:24px;padding:26px 23px}
+  .lab-intro-mark{width:84px;height:84px}
+  .lab-intro h3{font-size:27px}
+  .project-card{min-height:285px}
+  .project-card h3{margin-top:26px}
+  .web-project{grid-template-columns:42px 1fr;gap:12px;padding:22px}
+  .web-project-number{font-size:18px;align-self:start}
+  .web-project-copy h3{font-size:21px}
+  .web-project .tags{grid-column:2;max-width:none;margin-top:3px}
+}
