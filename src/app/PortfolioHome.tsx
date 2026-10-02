@@ -3,7 +3,10 @@
 import { useEffect, useState } from "react";
 import { translations, type Language } from "./translations";
 
-const languageOptions: { code: Language; label: string }[] = [
+type LanguagePreference = Language | "auto";
+
+const languageOptions: { code: LanguagePreference; label: string }[] = [
+  { code: "auto", label: "AUTO" },
   { code: "fr", label: "Français" },
   { code: "en", label: "English" },
   { code: "de", label: "Deutsch" },
@@ -24,18 +27,21 @@ function isLanguage(value: string | null): value is Language {
 
 export default function PortfolioHome({ basePath }: { basePath: string }) {
   const [language, setLanguage] = useState<Language>("fr");
+  const [preference, setPreference] = useState<LanguagePreference>("auto");
   const t = translations[language];
 
   useEffect(() => {
-    let selected: Language;
+    let selected: LanguagePreference;
     try {
       const savedPreference = window.localStorage.getItem("portfolio-language");
-      selected = isLanguage(savedPreference) ? savedPreference : detectLanguage();
+      selected = isLanguage(savedPreference) ? savedPreference : "auto";
     } catch {
-      selected = detectLanguage();
+      selected = "auto";
     }
-    setLanguage(selected);
-    document.documentElement.lang = selected;
+    const selectedLanguage = selected === "auto" ? detectLanguage() : selected;
+    setPreference(selected);
+    setLanguage(selectedLanguage);
+    document.documentElement.lang = selectedLanguage;
   }, []);
 
   useEffect(() => {
@@ -44,11 +50,14 @@ export default function PortfolioHome({ basePath }: { basePath: string }) {
     document.querySelector('meta[name="description"]')?.setAttribute("content", t.metaDescription);
   }, [language, t.metaDescription, t.metaTitle]);
 
-  function selectLanguage(selected: Language) {
-    setLanguage(selected);
-    document.documentElement.lang = selected;
+  function selectLanguage(selected: LanguagePreference) {
+    const selectedLanguage = selected === "auto" ? detectLanguage() : selected;
+    setPreference(selected);
+    setLanguage(selectedLanguage);
+    document.documentElement.lang = selectedLanguage;
     try {
-      window.localStorage.setItem("portfolio-language", selected);
+      if (selected === "auto") window.localStorage.removeItem("portfolio-language");
+      else window.localStorage.setItem("portfolio-language", selected);
     } catch {
       // The language still changes for this visit if storage is unavailable.
     }
@@ -69,8 +78,8 @@ export default function PortfolioHome({ basePath }: { basePath: string }) {
             className="language-button"
             type="button"
             key={option.code}
-            aria-label={option.label}
-            aria-pressed={language === option.code}
+            aria-label={option.code === "auto" ? t.automaticLabel : option.label}
+            aria-pressed={preference === option.code}
             onClick={() => selectLanguage(option.code)}
           >{option.code.toUpperCase()}</button>)}
         </div>

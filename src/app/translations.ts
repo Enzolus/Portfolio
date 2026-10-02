@@ -3,9 +3,10 @@ export type Language = "fr" | "en" | "de";
 export const translations = {
   fr: {
     languageLabel: "Choisir la langue",
+    automaticLabel: "Détection automatique de la langue",
     metaTitle: "Enzo Lusardi — Systèmes embarqués & cybersécurité",
     metaDescription: "Portfolio d’Enzo Lusardi, ingénieur systèmes embarqués, réseaux et cybersécurité.",
-    nav: { mainLabel: "Navigation principale", experience: "Parcours", projects: "Projets", skills: "Compétences", contact: "Contact", download: "Télécharger le PDF (FR)" },
+    nav: { mainLabel: "Navigation principale", experience: "Parcours", projects: "Projets", skills: "Compétences", contact: "Contact", download: "Télécharger PDF · FR" },
     hero: {
       eyebrow: "LOGICIEL EMBARQUÉ · RÉSEAUX · CYBERSÉCURITÉ",
       name: "Enzo Lusardi.",
@@ -67,9 +68,10 @@ export const translations = {
   },
   en: {
     languageLabel: "Choose language",
+    automaticLabel: "Automatic language selection",
     metaTitle: "Enzo Lusardi — Embedded Systems & Cybersecurity",
     metaDescription: "Portfolio of Enzo Lusardi, embedded systems, networks and cybersecurity engineer.",
-    nav: { mainLabel: "Main navigation", experience: "Experience", projects: "Projects", skills: "Skills", contact: "Contact", download: "Download French PDF" },
+    nav: { mainLabel: "Main navigation", experience: "Experience", projects: "Projects", skills: "Skills", contact: "Contact", download: "Download PDF · FR" },
     hero: {
       eyebrow: "EMBEDDED SOFTWARE · NETWORKS · CYBERSECURITY",
       name: "Enzo Lusardi.",
@@ -131,9 +133,10 @@ export const translations = {
   },
   de: {
     languageLabel: "Sprache wählen",
+    automaticLabel: "Sprache automatisch wählen",
     metaTitle: "Enzo Lusardi — Embedded Systems & Cybersicherheit",
     metaDescription: "Portfolio von Enzo Lusardi, Ingenieur für Embedded Systems, Netzwerke und Cybersicherheit.",
-    nav: { mainLabel: "Hauptnavigation", experience: "Erfahrung", projects: "Projekte", skills: "Kompetenzen", contact: "Kontakt", download: "Französisches PDF herunterladen" },
+    nav: { mainLabel: "Hauptnavigation", experience: "Erfahrung", projects: "Projekte", skills: "Kompetenzen", contact: "Kontakt", download: "PDF herunterladen · FR" },
     hero: {
       eyebrow: "EMBEDDED SOFTWARE · NETZWERKE · CYBERSICHERHEIT",
       name: "Enzo Lusardi.",

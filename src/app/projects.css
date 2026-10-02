@@ -33,6 +33,6 @@
   .web-project-copy h3{font-size:21px}
   .web-project .tags{grid-column:2;max-width:none;margin-top:3px}
   .nav-actions{gap:6px}
-  .language-button{padding:7px 7px}
+  .language-button{padding:7px 5px;font-size:9px}
   .nav-cta{white-space:nowrap}
 }
