@@ -133,7 +133,7 @@ export const translations = {
     languageLabel: "Sprache wählen",
     metaTitle: "Enzo Lusardi — Embedded Systems & Cybersicherheit",
     metaDescription: "Portfolio von Enzo Lusardi, Ingenieur für Embedded Systems, Netzwerke und Cybersicherheit.",
-    nav: { mainLabel: "Hauptnavigation", experience: "Erfahrung", projects: "Projekte", skills: "Kompetenzen", contact: "Französisches PDF" },
+    nav: { mainLabel: "Hauptnavigation", experience: "Erfahrung", projects: "Projekte", skills: "Kompetenzen", contact: "Kontakt", download: "Französisches PDF herunterladen" },
     hero: {
       eyebrow: "EMBEDDED SOFTWARE · NETZWERKE · CYBERSICHERHEIT",
       name: "Enzo Lusardi.",
