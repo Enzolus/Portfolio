@@ -16,6 +16,12 @@
 .web-project-copy h3{font-family:'Manrope',sans-serif;font-size:23px;font-weight:500;letter-spacing:-.7px;margin:0 0 7px}
 .web-project-copy>p:last-child{font-size:12px;line-height:1.7;color:var(--muted);max-width:640px;margin:0}
 .web-project .tags{margin:0;padding:0;max-width:280px}
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.language-switcher{display:flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.34)}
+.language-button{border:0;border-radius:999px;background:transparent;color:var(--muted);font:700 10px 'DM Sans',sans-serif;padding:8px 9px;cursor:pointer;transition:background .2s,color .2s}
+.language-button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.language-button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.language-line{display:block}
 @media(max-width:700px){
   .lab-intro{grid-template-columns:1fr;gap:24px;padding:26px 23px}
   .lab-intro-mark{width:84px;height:84px}
@@ -26,4 +32,7 @@
   .web-project-number{font-size:18px;align-self:start}
   .web-project-copy h3{font-size:21px}
   .web-project .tags{grid-column:2;max-width:none;margin-top:3px}
+  .nav-actions{gap:6px}
+  .language-button{padding:7px 7px}
+  .nav-cta{white-space:nowrap}
 }
