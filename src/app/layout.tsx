@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Prénom Nom — Portfolio",
-  description: "Portfolio professionnel et personnel de Prénom Nom.",
+  title: "Enzo Lusardi — Systèmes embarqués & cybersécurité",
+  description: "Portfolio d’Enzo Lusardi, ingénieur systèmes embarqués, réseaux et cybersécurité.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
